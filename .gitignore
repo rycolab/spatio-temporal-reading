@@ -1,0 +1,19 @@
+# Ignore all __pycache__ directories recursively
+__pycache__/
+**/__pycache__/
+
+# Ignore these directories recursively
+cluster_runs/
+**/cluster_runs/
+
+data/
+**/data/
+
+ignore/
+**/ignore/
+
+local_runs/
+**/local_runs/
+
+poster/
+**/poster/
