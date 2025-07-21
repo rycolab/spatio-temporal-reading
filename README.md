@@ -2,6 +2,7 @@
 
 This repository contains the code for the paper[&#34;A Spatio-Temporal Point Process for Fine-Grained Modeling of Reading Behavior&#34;](https://arxiv.org/abs/2506.19999), to be presented at ACL 2025.
 
+Below an animation of our hawkes process model evaluated on a reading sequence that was held out from the training and validation set:
 
 ![Reading session animation](image/held_out_sess.gif)
 
