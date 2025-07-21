@@ -2,6 +2,9 @@
 
 This repository contains the code for the paper[&#34;A Spatio-Temporal Point Process for Fine-Grained Modeling of Reading Behavior&#34;](https://arxiv.org/abs/2506.19999), to be presented at ACL 2025.
 
+
+![Reading session animation](image/held_out_sess.gif)
+
 ## ⚙️ Environment Setup
 
 To run the experiments, we recommend setting up a Python environment with the required dependencies. You can do this using `conda`:
@@ -19,7 +22,6 @@ conda activate reading-models
 
 pip install -r requirements.txt
 ```
-
 
 ## 🧑‍💻 Example Usage
 
@@ -45,7 +47,7 @@ Each card exposes three boolean flags you can override via the `model_cards.py` 
 * `testing=true|false`  – evaluate on held‑out split
 * `subset=true|false`   – restrict to ~2 k events for quick smoke tests
 
-More granular settings (learning rate, kernel size, etc.) live in `config.py::RunConfig` and can be overridden via environment variables or direct YAML edits.
+More granular settings (learning rate, kernel size, etc.) live in the dataclass `config.py::RunConfig` and can be overridden via environment variables or direct YAML edits.
 
 ### ⚡ Hyper‑parameter tuning on HPC Cluster (SLURM)
 
@@ -66,7 +68,7 @@ python scripts/cluster_launcher_mjobs.py \
 
 ### Selecting and Evaluating the Best Models
 
-All experiments are saved under the `cluster_runs/` directory, which is organized by task type:
+All experiments are saved under the `cluster_runs/` directory, which is organized a follows :
 
 ```bash
 cluster_runs/
@@ -74,12 +76,12 @@ cluster_runs/
 │   └── <model_name>_<timestamp>/
 │       ├── [folder run 1]
 │       ├── [folder run 2]
-│       └── best_model/
+│       └── ... 
 ├── saccade/
 │   └── <model_name>_<timestamp>/
 │       ├── [folder run 1]
 │       ├── [folder run 2]
-│       └── best_model/
+│       └── ...
 ```
 
 After running the experiments, we select the best model for each experiment folder based on its performance on the validation set.
@@ -104,20 +106,18 @@ This script saves the best-performing model for each experiment in the `best_mod
 Once the best models are saved, evaluate them on the test set by running:
 
 ```bash
-python scripts/run_test_eval_global.py --experiment-dir <path-to-dir>
+python scripts/run_test_eval_global.py --root-dir <path-to-dir>
 ```
 
 This script:
 
-* Loads each selected checkpoint,
+* Loads every best-model checkpoint,
 * Evaluates it on the test set, and
 * For the **saccade modeling task**, creates an animation on a held-out reading session (reader 3, text 10)
 
   (see example animation below).
 
-![Reading Session Animation](data/held_out_sess.gif)
-
-
+Citation
 
 If you use this work, please cite it as:
 
