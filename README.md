@@ -114,9 +114,9 @@ This script:
 
 * Loads every best-model checkpoint,
 * Evaluates it on the test set, and
-* For the **saccade modeling task**, creates an animation on a held-out reading session (reader 3, text 10)
+* For the **saccade modeling task**, creates an animation on a held-out reading session (reader 70, text 3)
 
-  (see example animation below).
+  (see example animation above).
 
 Citation
 
