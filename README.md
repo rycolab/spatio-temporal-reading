@@ -117,6 +117,22 @@ This script:
 * For the **saccade modeling task**, creates an animation on a held-out reading session (reader 70, text 3)
 
   (see example animation above).
+## Data
+
+The data is available at: https://polybox.ethz.ch/index.php/s/ncbLm6ZK9RXiXLF; 
+#### Contents of `data.zip`
+
+- **`dataset_cached/`**  
+  Contains the processed cached dataset.  
+  There are several versions, but they only differ in the scale of the temporal and spatial axes (e.g., seconds vs. milliseconds).
+
+- **`MECO/`**
+  - **`tabular_en/`**  
+    Contains `.csv` files, each representing a reading session for a given reader and text.
+  - **`texts_en/sentences_by_char.csv`**  
+    A table with the bounding boxes for each text.
+  - **`texts_en_images_char_level_surp/`** and **`texts_en_images_word_surp/`**  
+    Plots by text of the character level and word level surprisal, respectively.
 
 ## Citation
 
